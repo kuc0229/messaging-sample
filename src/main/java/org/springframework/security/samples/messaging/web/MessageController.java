@@ -16,6 +16,7 @@
 package org.springframework.security.samples.messaging.web;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.security.samples.messaging.data.Message;
 import org.springframework.security.samples.messaging.data.MessageRepository;
 import org.springframework.security.samples.messaging.data.UserRepository;
@@ -24,6 +25,7 @@ import org.springframework.security.samples.messaging.security.CustomUserDetails
 import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
+import java.security.Principal;
 
 /**
  * Controller for managing {@link Message} instances.
@@ -72,5 +74,4 @@ public class MessageController {
 	public void delete(@PathVariable Long id) {
 		messageRepository.delete(id);
 	}
-
 }

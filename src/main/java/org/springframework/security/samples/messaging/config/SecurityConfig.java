@@ -82,6 +82,8 @@ public class SecurityConfig {
 				.logout()
 					.logoutUrl("/admin/logout");
 		}
+
+		
 		// @formatter:on
 
 	}

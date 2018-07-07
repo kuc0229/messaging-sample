@@ -15,7 +15,6 @@
  */
 package org.springframework.security.samples.messaging.security;
 
-import org.springframework.security.samples.messaging.data.User;
 import org.springframework.stereotype.Component;
 
 /**
@@ -24,7 +23,11 @@ import org.springframework.stereotype.Component;
 @Component
 public class Authz {
 
-	public boolean check(Long userId, User user) {
-		return userId.equals(user.getId());
-	}
+    public boolean check(String userId, CustomUserDetails user) {
+        try {
+            return Long.parseLong(userId) == user.getId();
+        } catch (NumberFormatException e) {
+            return false;
+        }
+    }
 }
